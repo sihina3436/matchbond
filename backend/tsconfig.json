@@ -8,5 +8,6 @@
     "strict": true,
     "esModuleInterop": true,
     "verbatimModuleSyntax": false
-  }
+  },
+  "include": ["src/**/*"],
 }
