@@ -1,1 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 @import "tailwindcss";
+
+@theme{
+    --font-primary:  "Source Sans 3", sans-serif; 
+    --color-primary: #FDCFFA;
+    --color-primaryLight: #fcdca8;
+    --color-secondary:#142C53;
+    --color-light-background:#FFFFFF;
+    --color-text-dark:#1C1C1C;
+    --color-accentColor:#FFD23F;
+    --color-shadow:#d97706;
+
+    --default-font-family: ['Roboto', 'sans-serif'];
+}
+
+@layer components {
+  .auth-input {
+    @apply w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 transition;
+  }
+
+  .auth-btn {
+    @apply w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 transition shadow-lg;
+  }
+}
