@@ -15,14 +15,18 @@ interface MulterRequest extends Request {
 // Create a new post request
 export const CreatePostRequest = async (req: any, res: Response) => {
   try {
-    const {other_details, current_living, education, image} = req.body;
+    const { other_details, current_living, education, image } = req.body;
 
-    if(!other_details || !current_living || !education || !image) {
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    if (!other_details || !current_living || !education || !image) {
       return res.status(400).json({ message: "All fields are required" });
     }
-    
+
     const post = new Post({
-      user_id: req.user._id,
+      user_id: req.user.id,
       other_details,
       current_living,
       education,
@@ -59,6 +63,18 @@ export const GetPostsById = async (req: Request, res: Response) => {
     res.status(500).json({ error: error.message });
   }
 };
+//Get posts by user id
+export const GetPostsByUserId = async (req: Request, res: Response) => {
+  const { userId } = req.params;
+  try {
+    const posts = await Post.find({ user_id: userId });
+    res.status(200).json(posts);
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // Update post status
 export const UpdatePostStatus = async (req: Request, res: Response) => {
   const { id } = req.params;
