@@ -9,6 +9,7 @@ export interface IPost extends Document {
   current_living?: string;
   image?: string;
   education?: string;
+  likes: number;
 }
 
 const PostSchema = new Schema<IPost>(
@@ -25,6 +26,7 @@ const PostSchema = new Schema<IPost>(
     current_living: String,
     image: String,
     education: String,
+    likes: { type: Number, default: 0 } 
   },
   { timestamps: true }
 );
