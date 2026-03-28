@@ -5,7 +5,7 @@ import mongoose, { Document, Schema } from "mongoose";
 export interface IBanner extends Document {
   bannerTitle: string;
   bannerImageUrl: string;
-  type: "offer" | "review" ;
+  type: "offer" | "review" | "slide" ;
 
 }
 
@@ -22,7 +22,7 @@ const BannerSchema = new Schema<IBanner>(
     },
     type:{
         type: String,
-        enum: ["offer", "review"],
+        enum: ["offer", "review", "slide"],
         default: "offer"
     }
   },
