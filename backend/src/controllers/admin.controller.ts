@@ -104,6 +104,23 @@ export const reviewBanners = async (req: Request, res:Response) => {
   }
 }
 
+// Slide Images
+export const SlideBanners = async (req: Request, res:Response) => {
+  try{
+      const {bannerTitle, bannerImageUrl} = req.body;
+
+      const newBanner = await Banner.create({
+        bannerTitle,
+        bannerImageUrl,
+        type: "slide"
+      });
+      res.status(201).json({ message: "slide banner created successfully", banner: newBanner });
+  }catch(error){
+    res.status(500).json({ message: "Failed to review banners" });  
+  }
+}
+
+
 export const forgotPassword = async (req: Request, res: Response) => {
   try{
     const { email } = req.body;
