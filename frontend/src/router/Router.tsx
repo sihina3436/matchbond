@@ -19,7 +19,7 @@ import Profile from "../pages/user/profile/Profile";
 import UpdateProfile from "../pages/user/profile/UpdateProfile";
 import AddPost from "../pages/user/post/AddPost";
 import ChatRequest from "../pages/user/chat/ChatRequest";
-import Chat from "../pages/user/chat/Chat";
+
 
 // Admin pages
 import AdminDashboard from "../pages/admin/AdminDashboard";
@@ -30,6 +30,7 @@ import AdminForgotPassword from "../pages/auth/admin/AdminForgotPassword";
 import Unauthorized from "../components/Unauthorized";
 import NotFound from "../components/NotFound";
 import ContactAdmin from "../pages/user/post/ContactAdmin";
+import ChatPage from "../pages/user/chat/ChatPage";
 
 export const router = createBrowserRouter([
   {
@@ -49,7 +50,7 @@ export const router = createBrowserRouter([
         path: "post/:id", 
         element: <PostDetails /> 
       },
-      // PROTECTED USER ROUTES (role="user")
+      // PROTECTED USER ROUTES
       { 
         path: "profile", 
         element: (
@@ -91,15 +92,11 @@ export const router = createBrowserRouter([
           </ProtectedUserRoute>
         )
       },
-      { 
-        path: "chat/:id", 
-        element: (
-          <ProtectedUserRoute>
-            <Chat />
-          </ProtectedUserRoute>
-        ) 
+      {
+        path: "chat",
+        element: <ProtectedUserRoute><ChatPage/></ProtectedUserRoute>,
       },
-      // PROTECTED ADMIN ROUTES (role="admin")
+      // PROTECTED ADMIN ROUTES
       { 
         path: "admin", 
         element: (
