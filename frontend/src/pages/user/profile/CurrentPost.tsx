@@ -91,7 +91,7 @@ const CurrentPost: React.FC = () => {
             className="flex-1 py-2.5 rounded-xl font-semibold text-white
             bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500
             hover:opacity-90 transition shadow-md"
-            onClick={() => navigate("/update-profile")}
+            onClick={() => navigate(`/update-post/${post._id}`)}
           >
             Update
           </button>

@@ -3,10 +3,11 @@
 
 @theme{
     --font-primary:  "Source Sans 3", sans-serif; 
-    --color-primary: #FDCFFA;
-    --color-primaryLight: #fcdca8;
-    --color-secondary:#142C53;
-    --color-light-background:#FFFFFF;
+    --color-Blue: #4700D8;
+    --color-Purple: #9900F0;
+    --color-Pink:#F900BF;
+    --color-background:#EAEFEF;
+    --color-background-light:#F5F2F2;
     --color-text-dark:#1C1C1C;
     --color-accentColor:#FFD23F;
     --color-shadow:#d97706;
