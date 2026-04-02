@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {makeRequest,  getReceivedRequests, getSentRequests, updateRequestStatus, BlockUser} from "../controllers/chatRequest.controller";
+import {makeRequest,  getReceivedRequests, getSentRequests, updateRequestStatus, BlockUser,  UnblockUser} from "../controllers/chatRequest.controller";
 import { verifyUser } from "../middleware/auth.middleware";
 const router = Router();
 
@@ -8,7 +8,7 @@ router.get("/received/:receiverId", verifyUser, getReceivedRequests); // ☑️
 router.get("/sent/:senderId", verifyUser, getSentRequests); // ☑️
 router.patch("/status/:requestId", verifyUser, updateRequestStatus); 
 router.post("/block-user", verifyUser, BlockUser); // ☑️
-
+router.post("/unblock-user",     verifyUser, UnblockUser);
 
 
 export default router;

@@ -54,8 +54,6 @@ export const makeRequest = async (req: Request, res: Response) => {
   }
 };
 
-
-
 // ✅ Received Requests
 export const getReceivedRequests = async (req: Request, res: Response) => {
   const { receiverId } = req.params;
@@ -71,7 +69,6 @@ export const getReceivedRequests = async (req: Request, res: Response) => {
   }
 };
 
-
 // ✅ Sent Requests
 export const getSentRequests = async (req: Request, res: Response) => {
   const { senderId } = req.params;
@@ -86,7 +83,6 @@ export const getSentRequests = async (req: Request, res: Response) => {
     res.status(500).json({ error: error.message });
   }
 };
-
 
 // ✅ Accept / Reject
 export const updateRequestStatus = async (req: Request, res: Response) => {
@@ -113,30 +109,76 @@ export const updateRequestStatus = async (req: Request, res: Response) => {
   }
 };
 
-
 // ✅ Block User
 export const BlockUser = async (req: Request, res: Response) => {
-  const { senderId, receiverId } = req.body;
+  const { blockerId, blockedId } = req.body;
+
+  if (!blockerId || !blockedId) {
+    return res.status(400).json({ message: "blockerId and blockedId are required" });
+  }
 
   try {
     let request = await ChatRequest.findOne({
-      senderId,
-      receiverId,
+      $or: [
+        { senderId: blockerId, receiverId: blockedId },
+        { senderId: blockedId, receiverId: blockerId },
+      ],
+    });
+
+    if (request) {
+      request.status = "blocked";
+      (request as any).blockedBy = blockerId;
+      await request.save();
+    } else {
+      request = await ChatRequest.create({
+        senderId: blockerId,
+        receiverId: blockedId,
+        status: "blocked",
+        blockedBy: blockerId,
+      });
+    }
+
+    return res.json({ message: "User blocked", request });
+  } catch (error: any) {
+    console.error("BlockUser error:", error);
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+export const UnblockUser = async (req: Request, res: Response) => {
+  const { unblockerId, unblockedId } = req.body;
+
+  if (!unblockerId || !unblockedId) {
+    return res.status(400).json({ message: "unblockerId and unblockedId are required" });
+  }
+
+  try {
+    // Find in either direction
+    const request = await ChatRequest.findOne({
+      $or: [
+        { senderId: unblockerId, receiverId: unblockedId },
+        { senderId: unblockedId, receiverId: unblockerId },
+      ],
+      status: "blocked",
     });
 
     if (!request) {
-      request = await ChatRequest.create({
-        senderId,
-        receiverId,
-        status: "blocked",
-      });
-    } else {
-      request.status = "blocked";
-      await request.save();
+      return res.status(404).json({ message: "No blocked relationship found" });
     }
 
-    res.json({ message: "User blocked", request });
+    // Only the person who blocked can unblock
+    const blockedById = (request as any).blockedBy?.toString();
+    if (blockedById && blockedById !== unblockerId) {
+      return res.status(403).json({ message: "Only the person who blocked can unblock" });
+    }
+
+    request.status = "accepted";
+    (request as any).blockedBy = undefined;
+    await request.save();
+
+    return res.json({ message: "User unblocked", request });
   } catch (error: any) {
-    res.status(500).json({ error: error.message });
+    console.error("UnblockUser error:", error);
+    return res.status(500).json({ error: error.message });
   }
 };
