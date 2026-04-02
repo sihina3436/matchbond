@@ -1,4 +1,4 @@
-// SignUp.tsx
+
 import React, { useState } from "react";
 import LoginIMG from "../../assets/Signin.jpg";
 import { useSignupMutation } from "../../redux/userAuth/userAuthAPI";

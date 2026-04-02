@@ -31,6 +31,7 @@ import Unauthorized from "../components/Unauthorized";
 import NotFound from "../components/NotFound";
 import ContactAdmin from "../pages/user/post/ContactAdmin";
 import ChatPage from "../pages/user/chat/ChatPage";
+import UpdatePost from "../pages/user/post/UpdatePost";
 
 export const router = createBrowserRouter([
   {
@@ -74,6 +75,14 @@ export const router = createBrowserRouter([
             <AddPost />
           </ProtectedUserRoute>
         ) 
+      },
+      {
+        path: "update-post/:id",
+        element: (
+          <ProtectedUserRoute>
+            <UpdatePost/>
+          </ProtectedUserRoute>
+        )
       },
       { 
         path: "chat-requests", 
