@@ -12,6 +12,7 @@ import chatRoutes from "./src/routes/chatRequest.routes";
 import adminRoutes from "./src/routes/admin.routes";
 import imageRoutes from "./src/routes/image.routes";
 import postLikeRoutes from "./src/routes/postLike.routes";
+import messageRoutes from "./src/routes/message.routes";
 dotenv.config();
 
 const app = express();
@@ -35,6 +36,7 @@ app.use("/api/chat", chatRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/images", imageRoutes);
 app.use("/api/likes", postLikeRoutes);
+app.use("/api/messages", messageRoutes);
 
 // Connect MongoDB + Start Server
 const startServer = async () => {
