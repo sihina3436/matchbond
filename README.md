@@ -1,4 +1,4 @@
-# 💕 Dating Web Application – MERN Full Stack
+# Dating Web Application – MERN Full Stack
 
 [![Built with MERN Stack](https://img.shields.io/badge/MERN%20Stack-MongoDB%20Express%20React%20Node-61DAFB?style=flat-square&logo=react)](https://mern.io)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -13,9 +13,9 @@ A **modern, scalable dating web application** built with **MERN Stack (MongoDB, 
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-### 🔐 **Authentication & Security**
+###  **Authentication & Security**
 - JWT-based authentication
 - Role-based access control (User / Admin)
 - Protected routes for both frontend and backend
@@ -27,27 +27,27 @@ A **modern, scalable dating web application** built with **MERN Stack (MongoDB, 
 - Real-time message delivery
 - User blocking functionality
 
-### 👤 **User Features**
+###  **User Features**
 - Complete profile management
 - Create and manage dating posts
 - Like system and interactions
 - Advanced filtering and search
 - User discovery algorithm
 
-### 🛠️ **Admin Dashboard**
+###  **Admin Dashboard**
 - User management
 - Post moderation
 - Website configuration
 - Analytics and reporting
 
-### ⚙️ **Backend Infrastructure**
+### **Backend Infrastructure**
 - 30+ RESTful APIs
 - Service layer architecture
 - Advanced Mongoose schemas
 - Email notifications (Nodemailer)
 - Image storage (Cloudinary)
 
-### 🎨 **Frontend**
+### **Frontend**
 - React with TypeScript
 - Redux Toolkit state management
 - RTK Query for server state
@@ -56,7 +56,7 @@ A **modern, scalable dating web application** built with **MERN Stack (MongoDB, 
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 **Frontend:**
 - React, TypeScript, Redux Toolkit, RTK Query, Tailwind CSS, React Router DOM
@@ -71,7 +71,7 @@ A **modern, scalable dating web application** built with **MERN Stack (MongoDB, 
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ### Backend
 ```
@@ -128,7 +128,7 @@ frontend/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Node.js (v16+)
@@ -178,7 +178,7 @@ VITE_FIREBASE_API_KEY=xxx
 
 ---
 
-## 📊 API Overview
+##  API Overview
 
 **Authentication**
 - POST `/api/auth/register`
@@ -208,7 +208,7 @@ VITE_FIREBASE_API_KEY=xxx
 
 ---
 
-## 🎯 Features Breakdown
+##  Features Breakdown
 
 | Feature | Status |
 |---------|--------|
@@ -225,7 +225,7 @@ VITE_FIREBASE_API_KEY=xxx
 
 ---
 
-## 🔒 Security Features
+##  Security Features
 
 - JWT-based authentication
 - Password hashing with bcrypt
@@ -236,7 +236,7 @@ VITE_FIREBASE_API_KEY=xxx
 
 ---
 
-## 📱 Responsive Design
+## Responsive Design
 
 - Mobile-first approach
 - Tailwind CSS breakpoints
@@ -247,7 +247,7 @@ VITE_FIREBASE_API_KEY=xxx
 
 
 
-## 👨‍💻 Getting Help
+## Getting Help
 
 - Check documentation
 - Review API endpoints in Postman
@@ -256,10 +256,9 @@ VITE_FIREBASE_API_KEY=xxx
 
 ---
 
-## 📝 License
+##  License
 
 MIT License - feel free to use this project.
 
 ---
 
-**Made with ❤️ | Ready for Production**
