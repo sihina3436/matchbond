@@ -7,7 +7,7 @@
 
 ---
 
-## 📖 Overview
+##  Overview
 
 A **modern, scalable dating web application** built with **MERN Stack (MongoDB, Express, React, Node.js) and TypeScript**. This full-stack application features real-time chat, user authentication, advanced filtering, and admin dashboard for content moderation.
 
@@ -21,7 +21,7 @@ A **modern, scalable dating web application** built with **MERN Stack (MongoDB, 
 - Protected routes for both frontend and backend
 - Secure password management
 
-### 💬 **Real-Time Chat**
+###  **Real-Time Chat**
 - Firebase-powered messaging
 - Chat request management (Accept / Reject / Block / Unblock)
 - Real-time message delivery
